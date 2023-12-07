@@ -1,0 +1,70 @@
+scp -i labsuser.pem labsuser.pem ubuntu@ip address:/home/ubuntu/.
+sudo mysql -u root -p
+create user 'msis@localhost' identified with mysql_native_password by ''
+grant all privileges on ecommerce.* to 'msis@localhost'
+
+
+
+
+//static
+sudo apt-get update -y
+sudo apt-get install apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
+sudo systemctl status apache2
+sudo nano /etc/apache2/sites-available/000-default.conf    //default page of apache
+download the code from  html5up-paradigm-shift
+cd Downloads/                //just to check download
+ls
+cd ..                                // come out of download
+sudo cp Downloads/html5up-paradigm-shift.zip .              //copy from downloads
+sudo mkdir myapp
+sudo cp html5up-paradigm-shift.zip myapp/.                       //copy to myapp
+cd myapp/
+ls
+sudo unzip html5up-paradigm-shift.zip                                //unzip
+cd ..
+sudo cp -rf myapp/ /var/www/html/.                                  //copy to varwww/html
+cd /var/www/html/
+sudo nano /etc/apache2/sites-available/000-default.conf          //add myapp
+sudo service apache2 restart
+sudo ufw allow 80                       //if you get any error
+open browser and hit ip (172.16.51.49:80)
+
+//dynamic
+sudo apt-get update -y
+sudo apt-get install mysql-server mysql-client php libapache2-mod-php php-mysql
+sudo git clone https://github.com/sreepathysois/phpmysql-app.git .
+cd phpmysql-app/
+ls
+cd
+sudo mkdir /var/www/html/ecommerce1
+ls
+cd phpmysql-app/
+ls
+cd php/
+ls
+cd online-shopping-system/
+sudo cp -rf * /var/www/html/ecommerce1/.
+ cd /var/www/html/ecommerce1
+ls
+sudo nano /etc/apache2/sites-available/000-default.conf
+sudo systemctl restart apache2
+//check browser
+sudo systemctl status mysql
+sudo mysql -u root -p
+show databases;
+create user 'aks'@'localhost' identified with mysql_native_password by 'Aks@123';                       //create a new user with password
+ grant all privileges on ecommerce1 .* to 'aks'@'localhost';
+use ecommerce1;
+exit
+cd database/
+sudo mysql -u aks -p
+use ecommerce1;
+source onlineshop.sql;
+exit;
+cd ..
+sudo nano db.php
+
+
+
