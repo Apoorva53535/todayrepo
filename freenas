@@ -1,1 +1,37 @@
-c
+//cam
+
+download vm and freenas 11.2-RELESE.iso
+memory 20GB
+customize hardware 4gb
+ctr g(inside)
+contrl+alt(outside)
+yes->* -> ok ->BOOT VIA BIOS
+rebot
+you will get ip adress
+then again add 20gb to the haddisk ->IDE
+goto storage
+goto shell
+goto sharing
+goto service ->webdav ->sois@123
+browser -> 192.168.11.128:8080/web1
+userna:webdav
+password:sois@123
+
+//sharing
+continue till sharing
+service-> window(SMB)SHARE->ADD WINDOWS(smb)SHARE->PATH(MNT/VM1)->NAME(webshare)->allow guestuser ->ok
+
+goto group edit policy
+compute configuration
+administrative team 
+newtwork
+lanman workstation
+enable insecure guest
+policy setting
+ok
+
+//this pc ->... ->add network location 
+->next
+->choose a custom network location
+->\\192.168.10.128\webshare
+->finish
