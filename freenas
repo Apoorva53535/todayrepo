@@ -1,3 +1,39 @@
+//mpi cluster
+sudo apt-get install mpich -y
+sudo nano /etc/hosts
+  #MPI CLUSTERS
+172.20.36.120 manager
+172.20.36.153 worker1
+172.20.36.143 worker2
+172.20.36.116 worker3
+sudo adduser mpiuser
+sudo usermod -aG sudo mpiuser
+sudo apt­-get install openssh-server
+su - mpiuser
+ssh-keygen -t rsa
+cd .ssh/
+cat id_rsa.pub >> authorized_keys
+ssh-copy-id worker1
+ssh worker2
+ssh-copy-id manager
+//in master
+$ sudo apt-get install nfs-kernel-server
+sudo nano /etc/exports
+add=
+/home/mpiuser/cloud *(rw,sync,no_root_squash,no_subtree_check)
+For Example:
+
+/home/mpiuser/cloud 172.20.36.121(rw,sync,no_root_squash,no_subtree_check)
+$ exportfs -a
+$ sudo service nfs-kernel-server restart
+
+//in client
+$ sudo apt-get install nfs-common
+$ mkdir cloud
+$ sudo mount -t nfs manager:/home/mpiuser/cloud ~/cloud
+$ df -h
+
+
 //cam
 
 download vm and freenas 11.2-RELESE.iso
