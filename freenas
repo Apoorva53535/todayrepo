@@ -21,6 +21,21 @@ password:sois@123
 continue till sharing
 service-> window(SMB)SHARE->ADD WINDOWS(smb)SHARE->PATH(MNT/VM1)->NAME(webshare)->allow guestuser ->ok
 
+
+//in ubuntu 
+keep storage 10gb
+memory 4gb
+after sharing add linux nfs
+// in vm downloads goto properties [/]allow
+//in terminal
+sudo ~/Downloads/VMWwar-Player*
+
+sudo mkdir web
+cd web
+pwd
+/home/msis/web
+sudo mount 172.16.230.128:/mny/volume1 /home/msis/web
+df -h
 goto group edit policy
 compute configuration
 administrative team 
