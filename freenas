@@ -21,6 +21,20 @@ password:sois@123
 continue till sharing
 service-> window(SMB)SHARE->ADD WINDOWS(smb)SHARE->PATH(MNT/VM1)->NAME(webshare)->allow guestuser ->ok
 
+goto group edit policy
+compute configuration
+administrative team 
+newtwork
+lanman workstation
+enable insecure guest
+policy setting
+ok
+
+//this pc ->... ->add network location 
+->next
+->choose a custom network location
+->\\192.168.10.128\webshare
+->finish
 
 //in ubuntu 
 keep storage 10gb
@@ -36,17 +50,3 @@ pwd
 /home/msis/web
 sudo mount 172.16.230.128:/mny/volume1 /home/msis/web
 df -h
-goto group edit policy
-compute configuration
-administrative team 
-newtwork
-lanman workstation
-enable insecure guest
-policy setting
-ok
-
-//this pc ->... ->add network location 
-->next
-->choose a custom network location
-->\\192.168.10.128\webshare
-->finish
